@@ -1,0 +1,19 @@
+{
+    "name": "DeepDive",
+    "description": "Provides research for AI generated responses",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "src/index.html"
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "dist/content.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+  ]
+}
