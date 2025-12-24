@@ -1,5 +1,6 @@
 import { AbstractAdapter } from './AbstractAdapter';
 
+
 export class ChatGPTAdapter extends AbstractAdapter {
     protected handleMutation(element: Element): void {
         if (!element.classList.contains('markdown')) {
@@ -8,19 +9,17 @@ export class ChatGPTAdapter extends AbstractAdapter {
 
         if (!(element.classList.contains('streaming-animation') || element.classList.contains('result-thinking'))) {
 
-            if (element.hasAttribute("deepdive-processed")) {
+            if (element.hasAttribute('deepdive-processed')) {
                 return;
             }
 
-            this.renderPopup(element)
+            element.setAttribute('deepdive-processed', "")
+            const responseLines = element.querySelectorAll('p');
+            const response = [...responseLines].map(p => p.innerText).join('\n');
+            this.handleUserResponse(element, response)
         }
     }
 
-    private renderPopup(element: Element): void {
-        element.setAttribute("deepdive-processed", "")
-        const responseLines = element.querySelectorAll('p');
-        const response = [...responseLines].map(p => p.innerText).join('\n');
-        console.log(response);
-    }
+
 
 }

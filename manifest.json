@@ -9,7 +9,7 @@
     "content_scripts": [
         {
             "js": [
-                "dist/content.js"
+                "dist/bundle.js"
             ],
             "matches": [
                 "<all_urls>"

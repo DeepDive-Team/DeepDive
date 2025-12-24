@@ -11,7 +11,14 @@
   "license": "ISC",
   "devDependencies": {
     "@types/chrome": "^0.1.32",
+    "css-loader": "^7.1.2",
+    "css-modules-typescript-loader": "^4.0.1",
     "esbuild": "^0.27.2",
-    "typescript": "^5.9.3"
+    "html-loader": "^5.1.0",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.4",
+    "typescript": "^5.9.3",
+    "webpack": "^5.104.1",
+    "webpack-cli": "^6.0.1"
   }
 }
