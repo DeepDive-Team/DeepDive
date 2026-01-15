@@ -1,6 +1,6 @@
 import { ChatGPTAdapter } from "./adapter/ChatGPTAdapter";
 import { AbstractAdapter } from "./adapter/AbstractAdapter";
-import { injectAnalyzeButton } from "./analysis/InjectButton";
+import { injectAnalyzeButton } from "./ui/analysisbutton/InjectButton";
 
 class DeepDive {
     public init(): void {
@@ -8,12 +8,11 @@ class DeepDive {
         
         const hostname = window.location.hostname;
         
-        let adapter: ChatGPTAdapter | null = null;
+        let adapter: AbstractAdapter | null = null;
 
         if (hostname.match('chatgpt.com')) {
             console.log("DeepDive: Matched adapter for " + hostname)
             adapter = new ChatGPTAdapter();
-
         }
 
         if (adapter) {

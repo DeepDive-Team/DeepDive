@@ -1,0 +1,56 @@
+@keyframes spreadRadius {
+    0% {
+        box-shadow: 
+            -16px 0px 48px -10px #257ee6,
+            16px 0px 48px -10px #26bdca;
+    }
+    50% {
+        box-shadow: 
+            -16px 0px 48px -16px #257ee6,
+            16px 0px 48px -16px #26bdca;
+    }
+    100% {
+        box-shadow: 
+            -16px 0px 48px -10.1px #257ee6,
+            16px 0px 48px -10.1px #26bdca;
+    }
+}
+
+@keyframes buttonClick {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.deepDiveAnalysisButton {
+    background: linear-gradient(to right, #257ee6 0%, #26bdca 100%);
+    outline-style: none;
+    border: none;
+    border-radius: 8px;
+
+    animation: spreadRadius 3s ease-in-out infinite;
+
+    color: white;
+
+    margin-left: 10px;
+    padding: 0px 25px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.deepDiveAnalysisButton:active {
+    background-color: #1abc9c;
+    transform: scale(0.98);
+}
+
+.animate {
+    animation: buttonClick 0.5s ease-in forwards;
+}

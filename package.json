@@ -2,23 +2,19 @@
   "name": "deepdive",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "DeepDive.ts",
   "scripts": {
-    "watch": "esbuild src/ts/DeepDive.ts --bundle --outfile=dist/content.js --watch"
+    "watch": "npx vite build --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@crxjs/vite-plugin": "^2.3.0",
     "@types/chrome": "^0.1.32",
     "css-loader": "^7.1.2",
     "css-modules-typescript-loader": "^4.0.1",
-    "esbuild": "^0.27.2",
-    "html-loader": "^5.1.0",
-    "style-loader": "^4.0.0",
-    "ts-loader": "^9.5.4",
     "typescript": "^5.9.3",
-    "webpack": "^5.104.1",
-    "webpack-cli": "^6.0.1"
+    "vite": "^7.3.1"
   }
 }

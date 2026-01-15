@@ -25,7 +25,7 @@ export abstract class AbstractAdapter {
 
     protected abstract handleMutation(element: Element): void;
 
-    protected async fetchQueries(input: string): Promise<JSON> {
+    protected async fetchQueries(input: string): Promise<ApiResponse> {
         const url = 'http://localhost:5000/api/request';  // Replace with your API URL
         const data = {"input": input};  // The data to send
     
@@ -41,35 +41,23 @@ export abstract class AbstractAdapter {
             throw new Error("DeepDive: Backend request failed")
         }
 
-        const response = await request.json();
-        return response;
+        const { categorization, search_queries} = await request.json();
+        return {
+            categorization: categorization,
+            search_queries: search_queries
+        } satisfies ApiResponse;
 
     }
 
-    protected handleUserResponse(element: Element, input: string): void {
-        this.fetchQueries(input)
-        .then((apiData: JSON) => {
-            const parsedData: ApiResponse = apiData as unknown as ApiResponse;
+    protected async handleUserResponse(element: Element | undefined, input: string): Promise<void> {
+        const { categorization, search_queries: searchQueries } = await this.fetchQueries(input);
+        console.log(categorization, searchQueries);
+        
+        const messageContainer = element?.parentElement?.parentElement;
 
-            console.log(parsedData.categorization);
-            console.log(parsedData.search_queries);
-
-
-            // responseLines.textContent += parsedData.search_queries[0];
-            if (!(element instanceof HTMLElement)) {
-                return;
-            }
-
-            const htmlElement = element as HTMLElement;
-            const messageContainer = htmlElement.parentElement?.parentElement;
-
-            if (messageContainer == null) {
-                return;
-            }
-
-            this.addDeepDiveBubble(messageContainer, parsedData.search_queries);
-
-        });
+        if (messageContainer) {
+            this.addDeepDiveBubble(messageContainer, searchQueries);
+        }
         
     }
 

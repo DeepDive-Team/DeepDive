@@ -1,4 +1,4 @@
-import infoBubbleHtml from "./infobubble.html";
+import infoBubbleHtml from "./infobubble.html?raw";
 import * as infoBubbleCss from "./infobubble.module.css";
 
 export function addInfoBubble(parent: Element, searchQueries: string[]): void {
