@@ -15,8 +15,15 @@
                 "dist/assets/dist.css"
             ],
             "matches": [
-                "<all_urls>"
+                "https://chatgpt.com/*",
+                "https://*.google.com/*"
             ]
         }
+  ],
+  "web_accessible_resources": [
+    {
+        "resources": ["src/assets/fish.svg", "src/assets/water.svg"],
+        "matches": ["<all_urls>"]
+    }
   ]
 }

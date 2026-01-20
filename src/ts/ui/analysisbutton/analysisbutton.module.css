@@ -27,6 +27,17 @@
     }
 }
 
+@keyframes disappear {
+    from {
+        opacity: 1;
+        filter: blur(0px);
+    }
+    to {
+        opacity: 0;
+        filter: blur(5px);
+    }
+}
+
 .deepDiveAnalysisButton {
     background: linear-gradient(to right, #257ee6 0%, #26bdca 100%);
     outline-style: none;
@@ -53,4 +64,8 @@
 
 .animate {
     animation: buttonClick 0.5s ease-in forwards;
+}
+
+.disappear {
+    animation: disappear 1s forwards;
 }

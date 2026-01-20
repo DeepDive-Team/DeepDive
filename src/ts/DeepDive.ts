@@ -1,10 +1,10 @@
 import { ChatGPTAdapter } from "./adapter/ChatGPTAdapter";
 import { AbstractAdapter } from "./adapter/AbstractAdapter";
-import { injectAnalyzeButton } from "./ui/analysisbutton/InjectButton";
+import { injectAnalyzeButton } from "./ui/analysisbutton/AnalysisButton";
 
 class DeepDive {
     public init(): void {
-        const deepDiveParam = "deepdive"
+        const deepDiveParam = "deepdive";
         
         const hostname = window.location.hostname;
         
@@ -18,7 +18,7 @@ class DeepDive {
         if (adapter) {
             adapter.start();
             return;
-        } else {
+        } else {            
             console.log("DeepDive: No adapter found for " + hostname);
         }
         

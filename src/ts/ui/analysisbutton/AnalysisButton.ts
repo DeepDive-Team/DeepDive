@@ -1,4 +1,6 @@
 import * as analysisButtonCss from "./analysisbutton.module.css";
+import { playIntroAnimation } from "../analysis/AnalysisIntro";
+import { analyzeResults } from "../../analysis/AnalyzeResults";
 
 export function injectAnalyzeButton(): void {
     // const googleBar = document.getElementById('searchform');
@@ -20,7 +22,14 @@ export function injectAnalyzeButton(): void {
     settingsBar.insertBefore(analyzeButton, firstItem);
 
     analyzeButton.addEventListener('click', (event: MouseEvent) => {
-        console.log("click");
-        // analyzeButton.classList.add(analysisButtonCss.animate);
+        playIntroAnimation();
+        analyzeButton.disabled = true;
+        analyzeButton.classList.add(analysisButtonCss.disappear);
+
+        analyzeButton.addEventListener('animationend', () => {
+            analyzeButton.remove();
+        });
+
+        analyzeResults();
     })
 }   
