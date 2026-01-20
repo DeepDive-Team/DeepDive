@@ -16,7 +16,7 @@ export class ChatGPTAdapter extends AbstractAdapter {
             element.setAttribute('deepdive-processed', "")
             const responseLines = element.querySelectorAll('p');
             const response = [...responseLines].map(p => p.innerText).join('\n');
-            this.handleUserResponse(element, response)
+            this.handleChatResponse(element, response)
         }
     }
 
