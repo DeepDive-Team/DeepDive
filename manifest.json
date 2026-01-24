@@ -22,7 +22,7 @@
   ],
   "web_accessible_resources": [
     {
-        "resources": ["src/assets/fish.svg", "src/assets/water.svg"],
+        "resources": ["src/assets/fish.svg", "src/assets/water.svg", "src/assets/loading.svg"],
         "matches": ["<all_urls>"]
     }
   ]

@@ -1,7 +1,8 @@
 import { SearchResult } from "../../impl/SearchResult";
 import { fetchResultRankings } from "../api/ApiRequest";
+import { playOutroAnimation } from "../ui/analysis/AnalysisIntro";
 
-export function analyzeResults() {
+export async function analyzeResults() {
     // the class of search results
     const results: HTMLCollection = document.getElementsByClassName('MjjYud');
 
@@ -76,6 +77,7 @@ export function analyzeResults() {
 
     }
 
-    fetchResultRankings(searchResults);
+    await fetchResultRankings(searchResults);
+    playOutroAnimation();
 
 }

@@ -25,7 +25,7 @@ export async function fetchSearchQueries(input: string): Promise<QueryCategoriza
 }
 
 export async function fetchResultRankings(searchResults: SearchResult[]) {
-    const data = {"searches": searchResults}
+    const data = {"searches": searchResults};
 
     const request = await fetch(API_RANK_RESULTS_URL, {
         method: "POST",

@@ -21,3 +21,26 @@
     left: 60%;
     resize: 150%;
 }
+
+@keyframes rotate {
+    0% {
+        rotate: 0deg;
+    }
+    50% {
+        rotate: 180deg
+    }
+    100% {
+        rotate: 360deg;
+    }
+}
+
+.Loading {
+    z-index: 104;
+    position: absolute;
+    right: 50%;
+    scale: 25%;
+    filter: drop-shadow(0px 15px 25px rgba(0, 0, 0, 0.1));
+    /* animation: rotate 3s linear infinite; */
+}
+
+

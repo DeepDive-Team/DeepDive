@@ -3,15 +3,17 @@ import gsap from "gsap";
 // import fish from '../../../assets/fish.svg';
 import * as introCss from "./analysisintro.module.css";
 
+let mainTl: gsap.core.Timeline;
+let waterBobTl: gsap.core.Timeline;
+let fishBobTl: gsap.core.Timeline;
 
 export function playIntroAnimation() {
-    const SWIM_CYCLE_REPS = 3;
+    const SWIM_CYCLE_REPS = 4;
 
     const container = document.createElement("div");
     container.classList.add(introCss.AnalysisIntroDiv);
 
     document.body.insertAdjacentElement('beforebegin', container);
-
 
 
     // Draw water
@@ -23,6 +25,17 @@ export function playIntroAnimation() {
     container.appendChild(waterElement);
     
     gsap.set(waterElement, { y: waterElement.height })
+
+
+    // Draw loading circle
+    const loadingElement = document.createElement("img");
+    const loadingUrl = chrome.runtime.getURL('src/assets/loading.svg');
+    loadingElement.src = loadingUrl;
+    loadingElement.classList.add(introCss.Loading);
+    
+    container.appendChild(loadingElement);
+    
+    gsap.set(loadingElement, { y: window.innerHeight })
 
 
 
@@ -37,11 +50,10 @@ export function playIntroAnimation() {
     gsap.set(fishElement, { y: window.innerHeight })
     gsap.set(fishElement, { rotate: -15 })
 
-    const mainTl = gsap.timeline();
+    mainTl = gsap.timeline();
     // water rise
     mainTl.to(waterElement, {
         y: 200,
-        // top: "100 0",
         duration: 3,
         ease: "back.out"
     })
@@ -64,7 +76,7 @@ export function playIntroAnimation() {
 
     mainTl.play();
 
-    const waterBobTl = gsap.timeline();
+    waterBobTl = gsap.timeline();
     waterBobTl.delay(3)
     .to(waterElement, {
         y: 175,
@@ -76,7 +88,7 @@ export function playIntroAnimation() {
 
     waterBobTl.play();
 
-    const fishBobTl = gsap.timeline();
+    fishBobTl = gsap.timeline();
 
     fishBobTl.delay(2.1)
     // nod
@@ -96,9 +108,74 @@ export function playIntroAnimation() {
         duration: 1.5,
         yoyo: true,
         yoyoEase: true,
-        repeat: SWIM_CYCLE_REPS,
+        repeat: SWIM_CYCLE_REPS * 2,
         ease: "sine.inOut"
     })
 
     fishBobTl.play();
+
+    const loadingTl = gsap.timeline();
+
+    loadingTl
+    .delay(0.2)
+    // loading circle rise
+    .to(loadingElement, {
+        y: 350,
+        duration: 3,
+        ease: "back.inOut"
+    })
+    .to(loadingElement, {
+        rotate: 360,
+        duration: 3,
+        repeat: SWIM_CYCLE_REPS,
+        ease: "none"
+    }, 1.2)
+}
+
+export function playOutroAnimation() {
+    const waterElement = document.getElementsByClassName(introCss.Water)[0];
+    const fishElement = document.getElementsByClassName(introCss.Fish)[0];
+    const loadingElement = document.getElementsByClassName(introCss.Loading)[0];
+
+    mainTl.pause();
+    waterBobTl.pause();
+    fishBobTl.pause();
+
+    const waterOutroTl = gsap.timeline();
+
+    waterOutroTl
+    .to(waterElement, {
+        y: 600,
+        duration: 1.6,
+        ease: "back.in",
+        opacity: 0
+    })
+
+    waterOutroTl.play();
+
+    const fishOutroTl = gsap.timeline();
+
+    fishOutroTl
+    .to(fishElement, {
+        y: 800,
+        rotate: 15,
+        duration: 1.3,
+        ease: "back.in",
+        opacity: 0,
+    })
+
+    fishOutroTl.play();
+
+    const loadingOutroTl = gsap.timeline();
+
+    loadingOutroTl
+    .to(loadingElement, {
+        y: 800,
+        duration: 1,
+        ease: "back.in",
+        opacity: 0
+    })
+
+    loadingOutroTl.play();
+
 }
