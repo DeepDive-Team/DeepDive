@@ -24,8 +24,12 @@ export async function fetchSearchQueries(input: string): Promise<QueryCategoriza
     return response;
 }
 
-export async function fetchResultRankings(searchResults: SearchResult[]) {
-    const data = {"searches": searchResults};
+export async function fetchResultRankings(query: string, searchResults: SearchResult[]) {
+    const data = {
+        "query": query,
+        "results": searchResults
+    };
+    console.log(data);
 
     const request = await fetch(API_RANK_RESULTS_URL, {
         method: "POST",
@@ -40,4 +44,5 @@ export async function fetchResultRankings(searchResults: SearchResult[]) {
     }
 
     const response = (await request.json()) as SearchRanking[];
+    return response;
 }

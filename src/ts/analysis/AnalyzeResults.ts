@@ -1,15 +1,19 @@
 import { SearchResult } from "../../impl/SearchResult";
 import { fetchResultRankings } from "../api/ApiRequest";
 import { playOutroAnimation } from "../ui/analysis/AnalysisIntro";
+import { addResultInfo } from "../ui/searchresultinfo/SearchResultInfo";
 
 export async function analyzeResults() {
     // the class of search results
     const results: HTMLCollection = document.getElementsByClassName('MjjYud');
 
     const searchResults: Array<SearchResult> = new Array();
+    const searchResultElements: Array<Element> = new Array();
 
     for (let i = 0; i < results.length; i++) {
         const result = results[i];
+        
+        // ignore results with no children
         if (result.childElementCount == 0) {
             continue;
         }
@@ -66,18 +70,35 @@ export async function analyzeResults() {
         } catch (error) {
             description = "<no description>";
         }
+
  
         const searchResult: SearchResult = {
             "url": url,
             "title": title,
-            "description": description
+            "description": description,
+            "index": searchResults.length
         };
 
+        
+        searchResultElements.push(result);
         searchResults.push(searchResult);
 
     }
 
-    await fetchResultRankings(searchResults);
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get('q');
+
+    if (query == null) {
+        throw new Error("Failed to get search query!");
+    }
+
+    const rankings = await fetchResultRankings(query, searchResults);
+    console.log(rankings);
     playOutroAnimation();
 
+    for (let i = 0; i < searchResultElements.length; i++) {
+        const result: Element = searchResultElements[i];
+        console.log(result);
+        addResultInfo(result);
+    }
 }

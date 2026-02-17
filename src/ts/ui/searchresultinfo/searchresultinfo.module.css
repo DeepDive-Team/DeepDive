@@ -1,0 +1,39 @@
+.deepDiveRankings {
+    width: 100%;
+    background-color: #232f3f;
+    outline-style: solid;
+    outline-color: #3d526d;
+    outline-width: 1.5px;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    margin-top: 25px;
+    max-width: 75px;
+    max-height: 75px;
+    margin-left: auto;
+}
+
+.deepDiveRankings li {
+    display: inline-block;
+}
+
+.deepDiveRankings a {
+    background-color: #344253;
+    border-radius: 25px;
+    margin: 10px 5px;
+    padding: 8px;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.deepDiveRankings a:hover {
+    background-color: rgb(64, 91, 107);
+}
+
+.deepDiveRankings img {
+    padding: 2px;
+    margin-left: 8px;
+    background-color: white;
+    border-radius: 15px;
+    margin-top: 7px;
+}
