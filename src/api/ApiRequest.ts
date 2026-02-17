@@ -1,5 +1,5 @@
-import { SearchRanking } from "../../impl/SearchRanking";
-import { SearchResult } from "../../impl/SearchResult";
+import { SearchRanking, SearchRankingResponse } from "../impl/SearchRanking";
+import { SearchResult } from "../impl/SearchResult";
 
 const API_BASE_URL: string = 'http://localhost:5000/api/'
 const API_QUERY_SEND_URL: string = API_BASE_URL + "queries/send"; 
@@ -43,6 +43,6 @@ export async function fetchResultRankings(query: string, searchResults: SearchRe
         throw new Error("DeepDive: Backend request failed")
     }
 
-    const response = (await request.json()) as SearchRanking[];
+    const response = (await request.json()) as SearchRankingResponse;
     return response;
 }

@@ -5,12 +5,80 @@
     outline-color: #3d526d;
     outline-width: 1.5px;
     border-radius: 5px;
-    color: white;
-    padding: 10px;
-    margin-top: 25px;
-    max-width: 75px;
-    max-height: 75px;
+    padding: 5px;
+    max-width: 65px;
+    max-height: 65px;
+    min-width: 65px;
+    min-height: 65px;
     margin-left: auto;
+    /* text-align: center; */
+}
+
+.titleContainer {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.deepDiveRankings h1 {
+    font-size: 10px;
+    position: static;
+    right: 0px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.deepDiveRankings p {
+    font-size: 10px;
+    margin: 0;
+}
+
+.deepDiveRankings strong {
+    font-size: 30px;
+    text-align: center;
+    display: block;
+    line-height: 1;
+    margin-top: 7px;
+}
+
+.darkText {
+    color: white;
+}
+
+.lightText {
+    color: rgb(61, 61, 61);
+}
+
+.rankingGood {
+    background-color: #f4f9f2;
+    outline-color: #a3d9a5; 
+}
+
+.rankingNeutral {
+    background-color: #f9f9f2;
+    outline-color: #d4d9a3; 
+}
+
+.rankingBad {
+    background-color: #f9f2f2;
+    outline-color: #d9a3a3; 
+}
+
+.rankingGoodDark {
+    background-color: #233f25;
+    outline-color: #3d6d47;
+}
+
+.rankingNeutralDark {
+    background-color: #3c3f23;
+    outline-color: #636d3d;
+}
+
+.rankingBadDark {
+    background-color: #3f2323;
+    outline-color: #6d3d3d;
 }
 
 .deepDiveRankings li {
@@ -30,10 +98,3 @@
     background-color: rgb(64, 91, 107);
 }
 
-.deepDiveRankings img {
-    padding: 2px;
-    margin-left: 8px;
-    background-color: white;
-    border-radius: 15px;
-    margin-top: 7px;
-}

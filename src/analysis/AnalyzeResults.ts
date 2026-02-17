@@ -1,7 +1,8 @@
-import { SearchResult } from "../../impl/SearchResult";
+import { SearchResult } from "../impl/SearchResult";
 import { fetchResultRankings } from "../api/ApiRequest";
 import { playOutroAnimation } from "../ui/analysis/AnalysisIntro";
 import { addResultInfo } from "../ui/searchresultinfo/SearchResultInfo";
+import { SearchRanking, SearchRankingResponse } from "../impl/SearchRanking";
 
 export async function analyzeResults() {
     // the class of search results
@@ -92,13 +93,19 @@ export async function analyzeResults() {
         throw new Error("Failed to get search query!");
     }
 
-    const rankings = await fetchResultRankings(query, searchResults);
-    console.log(rankings);
+    const rankings: SearchRanking[] = (await fetchResultRankings(query, searchResults)).rankings;
+    
     playOutroAnimation();
 
     for (let i = 0; i < searchResultElements.length; i++) {
+        const ranking = rankings.find(item => item.index === i);
+        
+        if (ranking == null) {
+            continue;
+        }
+
         const result: Element = searchResultElements[i];
-        console.log(result);
-        addResultInfo(result);
+        console.log(ranking);
+        addResultInfo(result as HTMLElement, ranking);
     }
 }
