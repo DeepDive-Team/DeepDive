@@ -7,7 +7,7 @@ export default defineConfig({
 
         rollupOptions: {
             input: {
-                dist: 'src/ts/DeepDive.ts'
+                dist: 'src/DeepDive.ts'
             },
             output: {
                 entryFileNames: `[name].js`,
