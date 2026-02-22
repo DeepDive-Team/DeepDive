@@ -2,6 +2,7 @@ import gsap from "gsap";
 // import water from '../../../assets/water.svg';
 // import fish from '../../../assets/fish.svg';
 import * as introCss from "./analysisintro.module.css";
+import { getPreferredTheme } from "../../util/ThemeUtil";
 
 let mainTl: gsap.core.Timeline;
 let waterBobTl: gsap.core.Timeline;
@@ -18,7 +19,15 @@ export function playIntroAnimation() {
 
     // Draw water
     const waterElement = document.createElement("img");
-    const waterUrl = chrome.runtime.getURL('src/assets/water.svg');
+    let waterResourceLocation;
+    const preferredColorScheme: string = getPreferredTheme();
+    if (preferredColorScheme == "dark") {
+        waterResourceLocation = 'src/assets/water.svg';
+    }
+    else {
+        waterResourceLocation = 'src/assets/water_light.svg'
+    }
+    const waterUrl = chrome.runtime.getURL(waterResourceLocation);
     waterElement.src = waterUrl;
     waterElement.classList.add(introCss.Water);
     

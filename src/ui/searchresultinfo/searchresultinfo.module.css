@@ -11,7 +11,6 @@
     min-width: 65px;
     min-height: 65px;
     margin-left: auto;
-    /* text-align: center; */
 }
 
 .titleContainer {
@@ -36,7 +35,7 @@
 }
 
 .deepDiveRankings strong {
-    font-size: 30px;
+    font-size: 32px;
     text-align: center;
     display: block;
     line-height: 1;
@@ -81,20 +80,16 @@
     outline-color: #6d3d3d;
 }
 
-.deepDiveRankings li {
-    display: inline-block;
-}
-
-.deepDiveRankings a {
-    background-color: #344253;
-    border-radius: 25px;
-    margin: 10px 5px;
-    padding: 8px;
-    font-size: 14px;
-    display: inline-block;
-}
 
 .deepDiveRankings a:hover {
     background-color: rgb(64, 91, 107);
 }
 
+.fadeIn {
+    opacity: 0;
+    transition: opacity 0.25s ease-in;
+}
+
+.fadeIn.visible {
+    opacity: 1;
+}

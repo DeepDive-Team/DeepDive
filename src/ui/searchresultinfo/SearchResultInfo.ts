@@ -1,4 +1,5 @@
 import { SearchRanking } from "../../impl/SearchRanking";
+import { getPreferredTheme } from "../../util/ThemeUtil";
 import infoHtml from "./searchresultinfo.html?raw";
 import * as infoCss from "./searchresultinfo.module.css";
 
@@ -25,14 +26,11 @@ export function addResultInfo(parent: HTMLElement, ranking: SearchRanking): void
     }
     scoreElement.innerText = ranking.score.toString();
 
-    const darkModePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    let preferredColorScheme: string;
-    if (darkModePreferred) {
-        preferredColorScheme = "dark";
+    const preferredColorScheme: string = getPreferredTheme();
+    if (preferredColorScheme == "dark") {   
         info_bubble.classList.add(infoCss.darkText);
     }
     else {
-        preferredColorScheme = "light";
         info_bubble.classList.add(infoCss.lightText);
     }
 
@@ -60,7 +58,9 @@ export function addResultInfo(parent: HTMLElement, ranking: SearchRanking): void
     }
 
 
-
-    
+    info_bubble.classList.add(infoCss.fadeIn);
+    requestAnimationFrame(() => {
+        info_bubble.classList.add(infoCss.visible);
+    });
     
 }

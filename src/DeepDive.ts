@@ -1,11 +1,17 @@
 import { ChatGPTAdapter } from "./adapter/ChatGPTAdapter";
 import { AbstractAdapter } from "./adapter/AbstractAdapter";
 import { injectAnalyzeButton } from "./ui/analysisbutton/AnalysisButton";
+import { isExtensionEnabled } from "./util/StateManager";
+
 
 class DeepDive {
-    public init(): void {
+    public async init(): Promise<void> {
         const deepDiveParam = "deepdive";
         
+        if (!(await isExtensionEnabled())) {
+            return;
+        }
+                
         const hostname = window.location.hostname;
         
         let adapter: AbstractAdapter | null = null;

@@ -1,13 +1,30 @@
 .deepDiveResults {
     width: 100%;
-    background-color: #232f3f;
     outline-style: solid;
-    outline-color: #3d526d;
     outline-width: 1.5px;
     border-radius: 5px;
-    color: white;
     padding: 10px;
     margin-top: 25px;
+}
+
+.dark {
+    background-color: #232f3f;
+    outline-color: #3d526d;
+    color: white;
+}
+
+.light {
+    background-color: #e5edf5;
+    outline-color: #a8b9ce;
+    color: rgb(61, 61, 61);;
+}
+
+.dark a {
+    background-color: #344253;
+}
+
+.light a {
+    background-color: #cdd6e4;
 }
 
 .deepDiveResults li {
@@ -15,7 +32,7 @@
 }
 
 .deepDiveResults a {
-    background-color: #344253;
+
     border-radius: 25px;
     margin: 10px 5px;
     padding: 8px;
@@ -23,8 +40,12 @@
     display: inline-block;
 }
 
-.deepDiveResults a:hover {
+.dark a:hover {
     background-color: rgb(64, 91, 107);
+}
+
+.light a:hover {
+    background-color: #adbed1
 }
 
 .deepDiveResults img {

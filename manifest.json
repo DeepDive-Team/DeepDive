@@ -4,7 +4,7 @@
     "version": "1.0",
     "manifest_version": 3,
     "action": {
-        "default_popup": "src/index.html"
+        "default_popup": "dist/public/index.html"
     },
     "content_scripts": [
         {
@@ -19,11 +19,19 @@
                 "https://*.google.com/search?*&deepdive=1*"
             ]
         }
-  ],
-  "web_accessible_resources": [
-    {
-        "resources": ["src/assets/fish.svg", "src/assets/water.svg", "src/assets/loading.svg"],
-        "matches": ["<all_urls>"]
+    ],
+    "permissions": [
+        "storage"
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["src/assets/fish.svg", "src/assets/water.svg", "src/assets/loading.svg", "src/assets/water_light.svg"],
+            "matches": ["<all_urls>"]
+        }
+    ],
+    "icons": {
+        "16": "src/assets/icon_16.png",
+        "48": "src/assets/icon_48.png",
+        "128": "src/assets/icon_128.png"
     }
-  ]
 }
