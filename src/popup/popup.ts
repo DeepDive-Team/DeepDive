@@ -1,3 +1,15 @@
+const logo = chrome.runtime.getURL("src/assets/logo_full.png");
+
+const image: HTMLImageElement = document.createElement("img");
+image.src = logo;
+image.width = 165;
+image.draggable = false;
+
+const stateSlider = document.querySelector("label");
+
+document.body.insertBefore(image, stateSlider);
+
+
 const checkbox = document.querySelector("input") as HTMLInputElement;
 
 checkbox.checked = await isExtensionEnabled();

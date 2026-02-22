@@ -3,6 +3,7 @@
 	<body>
 		<script type="module" src="../src/popup/popup.ts"></script>
 
+
 		<label class="toggle">
 			<input type="checkbox">
 			<span class="slider"></span>
@@ -11,12 +12,25 @@
 
 </html>
 
-<!--Thanks w3 schools, https://www.w3schools.com/howto/howto_css_switch.asp -->
+<!-- Thanks w3 schools, https://www.w3schools.com/howto/howto_css_switch.asp -->
 
 <style>
 	body {
-		background: #257ee6;
+		background: linear-gradient(45deg, #174a8c 0%, #1860be 100%);
+		/* background: #242424; */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		width: 200;
 	}
+
+	h1 {
+		color: white;
+	}
+
+	/* label {
+	} */
 
 	.toggle {
 		position: relative;
@@ -58,11 +72,11 @@
 	}
 
 	input:checked + .slider {
-		background-color: #26adca;
+		background-color: #257ee6;
 	}
 
 	input:focus + .slider {
-		box-shadow: 0 0 1px #26adca;
+		box-shadow: 0 0 1px #257ee6;
 	}
 
 	input:checked + .slider:before {

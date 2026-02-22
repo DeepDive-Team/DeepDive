@@ -25,7 +25,7 @@
     ],
     "web_accessible_resources": [
         {
-            "resources": ["src/assets/fish.svg", "src/assets/water.svg", "src/assets/loading.svg", "src/assets/water_light.svg"],
+            "resources": ["src/assets/fish.svg", "src/assets/water.svg", "src/assets/loading.svg", "src/assets/water_light.svg", "src/assets/logo_full.png"],
             "matches": ["<all_urls>"]
         }
     ],
