@@ -82,7 +82,7 @@ export function addInfoBubble(parent: Element, searchQueries: string[], response
     }
 
 
-    if (responseId > -2) {
+    if (responseId > -1) {
         const surveyContainer = document.createElement('div');
         surveyContainer.classList.add(infoBubbleCss.survey);
         info_bubble.appendChild(surveyContainer);

@@ -1,8 +1,8 @@
 import { SearchRanking, SearchRankingResponse } from "../impl/SearchRanking";
 import { SearchResult } from "../impl/SearchResult";
 
-// const API_BASE_URL: string = 'https://deepdive-backend.vercel.app/api/'
-const API_BASE_URL: string = 'http://localhost:5000/api/'
+const API_BASE_URL: string = 'https://deepdive-backend.vercel.app/api/'
+// const API_BASE_URL: string = 'http://localhost:5000/api/'
 const API_QUERY_SEND_URL: string = API_BASE_URL + "queries/send"; 
 const API_RANK_RESULTS_URL: string = API_BASE_URL + "queries/rank"; 
 const API_METRICS_URL: string = API_BASE_URL + "metrics"; 

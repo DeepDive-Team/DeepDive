@@ -31,6 +31,10 @@ export abstract class AbstractAdapter {
 
     protected async handleChatResponse(element: Element | undefined, input: string): Promise<void> {
         const { categorization, search_queries: searchQueries, response_id: responseId } = await fetchSearchQueries(input);
+
+        if (categorization == 'creative') {
+            return;
+        }
         
         const messageContainer = element?.parentElement?.parentElement;
 
