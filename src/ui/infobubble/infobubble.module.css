@@ -7,6 +7,20 @@
     margin-top: 25px;
 }
 
+.survey {
+    all: revert;
+    outline: revert;
+    background: revert;
+    display: flex;
+    gap: 10px;
+}
+
+.survey img {
+    all: unset;
+    outline-width: 15px;
+}
+
+
 .dark {
     background-color: #232f3f;
     outline-color: #3d526d;

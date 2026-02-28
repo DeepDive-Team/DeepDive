@@ -30,19 +30,18 @@ export abstract class AbstractAdapter {
 
 
     protected async handleChatResponse(element: Element | undefined, input: string): Promise<void> {
-        const { categorization, search_queries: searchQueries } = await fetchSearchQueries(input);
-        console.log(categorization, searchQueries);
+        const { categorization, search_queries: searchQueries, response_id: responseId } = await fetchSearchQueries(input);
         
         const messageContainer = element?.parentElement?.parentElement;
 
         if (messageContainer) {
-            this.addDeepDiveBubble(messageContainer, searchQueries);
+            this.addDeepDiveBubble(messageContainer, searchQueries, responseId);
         }
         
     }
 
-    private addDeepDiveBubble(element: HTMLElement, queries: string[]): void {
-        addInfoBubble(element, queries);
+    private addDeepDiveBubble(element: HTMLElement, queries: string[], responseId: number): void {
+        addInfoBubble(element, queries, responseId);
     }
 
 

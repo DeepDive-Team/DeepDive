@@ -25,7 +25,17 @@
     ],
     "web_accessible_resources": [
         {
-            "resources": ["src/assets/fish.svg", "src/assets/water.svg", "src/assets/loading.svg", "src/assets/water_light.svg", "src/assets/logo_full.png"],
+            "resources": [
+                "src/assets/fish.svg",
+                "src/assets/water.svg",
+                "src/assets/loading.svg",
+                "src/assets/water_light.svg",
+                "src/assets/logo_full.png",
+                "src/assets/thumbs_up.svg",
+                "src/assets/thumbs_up_filled.svg",
+                "src/assets/thumbs_down.svg",
+                "src/assets/thumbs_down_filled.svg"
+            ],
             "matches": ["<all_urls>"]
         }
     ],

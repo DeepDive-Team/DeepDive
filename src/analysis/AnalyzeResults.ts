@@ -105,7 +105,7 @@ export async function analyzeResults() {
         }
 
         const result: Element = searchResultElements[i];
-        console.log(ranking);
+
         addResultInfo(result as HTMLElement, ranking);
     }
 }
