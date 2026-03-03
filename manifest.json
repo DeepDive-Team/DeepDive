@@ -1,6 +1,6 @@
 {
     "name": "DeepDive",
-    "description": "Provides research for AI generated responses",
+    "description": "Fast and easy research for AI generated responses",
     "version": "1.0",
     "manifest_version": 3,
     "action": {
